@@ -1,6 +1,6 @@
 # SilkySpawnersX API
 
-The SilkySpawnersX API provides a set of events that allow other plugins to listen to and react to various spawner-related actions handled by SilkySpawnersX. All events are informational only and cannot be cancelled.
+The SilkySpawnersX API provides a set of events that allow other plugins to listen to and react to various spawner-related actions handled by SilkySpawnersX. All events are informational only and cannot be cancelled. However, I can expose whatever methods people suggest, and I can provide events as SYNC upon request.
 
 ## Events
 
