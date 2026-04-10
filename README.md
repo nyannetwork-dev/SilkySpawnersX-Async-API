@@ -92,7 +92,7 @@ Fired whenever SilkySpawnersX handles a player placing a spawner item.
 - `gameMode` (GameMode): The player's game mode
 - `isOperator` (boolean): Whether the player is an operator
 
-### SpawnerTransformEvent
+### 🧬 SpawnerTransformEvent
 
 Fired when a player attempts to transform an existing spawner using a spawn egg.
 
