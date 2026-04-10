@@ -1,10 +1,10 @@
 # SilkySpawnersX API
 
-The SilkySpawnersX API provides a set of events that allow other plugins to listen to and react to various spawner-related actions handled by SilkySpawnersX. All events are informational only and cannot be cancelled. However, I can expose whatever methods people suggest, and I can provide events as SYNC upon request.
+The SilkySpawnersX API provides a set of events that allow other plugins to listen to and react to various spawner-related actions handled by SilkySpawnersX. All events are informational only and cannot be cancelled.
 
 ## Events
 
-### SpawnerBreakEvent
+### ⛏️ SpawnerBreakEvent
 
 Fired whenever SilkySpawnersX handles a player breaking a spawner.
 
@@ -20,7 +20,7 @@ Fired whenever SilkySpawnersX handles a player breaking a spawner.
 
 **Context Keys:**
 - `reason` (String)
-- `world-name` (String)
+- `world-name` (String, e.g. world_the_nether)
 - `drop-rate` (double)
 - `base-rate` (double)
 - `drop-bonus` (double)
@@ -32,7 +32,7 @@ Fired whenever SilkySpawnersX handles a player breaking a spawner.
 - `eligible-enchantments` (String)
 - `is-operator` (boolean)
 
-### SpawnerCraftEvent
+### 🛠️ SpawnerCraftEvent
 
 Fired whenever a player attempts to craft a spawner through SilkySpawnersX logic.
 
@@ -48,16 +48,16 @@ Fired whenever a player attempts to craft a spawner through SilkySpawnersX logic
 
 **Context Keys:**
 - `reason` (String)
-- `world-name` (String)
+- `world-name` (String e.g. world_the_nether)
 - `unit-price` (double)
 - `order-amount` (int)
-- `formated-total-charge` (String)
+- `formated-total-charge` (String, e.g. <$>50)
 - `remaining-balance` (double)
 - `is-operator` (boolean)
 - `is-creative` (boolean)
 - `price-modifier` (double)
 
-### SpawnerExplosionEvent
+### 💥 SpawnerExplosionEvent
 
 Fired when a spawner is affected by an explosion and SilkySpawnersX processes a drop outcome.
 
@@ -71,12 +71,12 @@ Fired when a spawner is affected by an explosion and SilkySpawnersX processes a 
 
 **Context Keys:**
 - `reason` (String)
-- `world-name` (String)
+- `world-name` (String, e.g. world_the_nether)
 - `drop-rate` (double)
 - `roll` (double)
 - `was-spawner-already-tagged` (boolean)
 
-### SpawnerPlaceEvent
+### 📦 SpawnerPlaceEvent
 
 Fired whenever SilkySpawnersX handles a player placing a spawner item.
 
@@ -84,7 +84,7 @@ Fired whenever SilkySpawnersX handles a player placing a spawner item.
 - `result` (Result enum): SUCCESS or FAILURE
 - `reason` (String): The reason for the result
 - `player` (Player): The player placing the spawner
-- `worldName` (String): The name of the world
+- `worldName` (String, e.g. world_the_nether): The name of the world
 - `location` (Location): The location where the spawner was placed
 - `spawnerType` (EntityType): The type of entity the spawner spawns
 - `wasTagApplied` (boolean): Whether a tag was applied
@@ -107,9 +107,9 @@ Fired when a player attempts to transform an existing spawner using a spawn egg.
 
 **Context Keys:**
 - `reason` (String)
-- `world-name` (String)
-- `monster-name-from-egg` (String)
-- `monster-name-from-clicked-spawner` (String)
+- `world-name` (String, e.g. world_the_nether)
+- `monster-name-from-egg` (String, e.g. magma cube)
+- `monster-name-from-clicked-spawner` (String, e.g. magma cube)
 - `price` (double)
 - `charged-amount` (Double)
 - `was-player-charged` (boolean)
