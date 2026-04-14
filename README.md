@@ -102,7 +102,7 @@ Fired when a player attempts to transform an existing spawner using a spawn egg.
 - `location` (Location): The location of the spawner
 - `entityFromSpawner` (EntityType): The original entity type of the spawner
 - `entityFromEgg` (EntityType): The new entity type from the spawn egg
-- `price` (double): The price charged for the transformation
+- `finalPrice` (double): The final price charged for the transformation
 - `context` (Map<String, Object>): Additional context information
 
 **Context Keys:**
@@ -110,7 +110,35 @@ Fired when a player attempts to transform an existing spawner using a spawn egg.
 - `world-name` (String, e.g. world_the_nether)
 - `monster-name-from-egg` (String, e.g. magma cube)
 - `monster-name-from-clicked-spawner` (String, e.g. magma cube)
-- `price` (double)
+- `final-price` (double)
+- `charged-amount` (Double)
+- `was-player-charged` (boolean)
+- `base-price` (double)
+- `modifier` (double)
+- `remaining-balance` (String)
+- `is-operator` (boolean)
+- `is-creative` (boolean)
+- `is-spawner-tagged` (boolean)
+
+### ⚙️ SpawnerTransformCommandEvent
+
+Fired when a player attempts to transform a spawner via the transform command.
+
+**Fields:**
+- `result` (Result enum): SUCCESS or FAILURE
+- `player` (Player): The player executing the transform command
+- `location` (Location): The location where the transformation was attempted
+- `requestedEntity` (EntityType): The entity type requested by the command
+- `spawnerInHandEntity` (EntityType): The entity type of the spawner held in hand
+- `finalPrice` (double): The final price calculated for the command transformation
+- `context` (Map<String, Object>): Additional context information
+
+**Context Keys:**
+- `reason` (String)
+- `world-name` (String, e.g. world_the_nether)
+- `monster-name-from-requested-type` (String, e.g. magma cube)
+- `monster-name-from-held-spawner` (String, e.g. magma cube)
+- `final-price` (double)
 - `charged-amount` (Double)
 - `was-player-charged` (boolean)
 - `base-price` (double)
