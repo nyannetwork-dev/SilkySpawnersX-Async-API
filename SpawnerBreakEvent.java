@@ -36,7 +36,7 @@ public class SpawnerBreakEvent extends Event {
     private final Map<String, Object> context;
 
     // Exposed values: result(enum), Player, Block, spawnerType(EntityType), Location, quantity(int), wasSpawnerAlreadyTagged(boolean), context(Map<String, Object>).
-    // Context keys: reason(String), world-name(String), drop-rate(double), base-rate(double), drop-bonus(double), roll(double), xp-awarded(int), held-tool-name(String),
+    // Context keys: reason(String), world-name(String, e.g. world_the_nether), drop-rate(double), base-rate(double), drop-bonus(double), roll(double), xp-awarded(int), held-tool-name(String),
     // held-tool-enchantments(String), eligible-tools(String), eligible-enchantments(String), is-operator(boolean).
     public SpawnerBreakEvent(Result result, Player player, Block block, EntityType spawnerType, Location location, int quantity, boolean wasSpawnerAlreadyTagged, Map<String, Object> context) {
         super(!Bukkit.isPrimaryThread());

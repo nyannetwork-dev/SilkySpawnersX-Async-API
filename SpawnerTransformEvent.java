@@ -30,13 +30,13 @@ public class SpawnerTransformEvent extends Event {
     private final Location location;
     private final EntityType entityFromSpawner;
     private final EntityType entityFromEgg;
-    private final double price;
+    private final double finalPrice;
     private final Map<String, Object> context;
 
-    // Exposed values: result(enum), Player, Location, entityFromSpawner(EntityType), entityFromEgg(EntityType), price(double), context(Map<String, Object>)
-    // Context keys: reason(String), world-name(String, e.g. world_the_nether), monster-name-from-egg(String, e.g. magma cube), monster-name-from-clicked-spawner(String, e.g. magma cube), price(double),
+    // Exposed values: result(enum), Player, Location, entityFromSpawner(EntityType), entityFromEgg(EntityType), finalPrice(double), context(Map<String, Object>)
+    // Context keys: reason(String), world-name(String, e.g. world_the_nether), monster-name-from-egg(String, e.g. magma cube), monster-name-from-clicked-spawner(String, e.g. magma cube), final-price(double),
     // charged-amount(Double), was-player-charged(boolean), base-price(double), modifier(double), remaining-balance(String), is-operator (boolean), is-creative(boolean), is-spawner-tagged(boolean).
-    public SpawnerTransformEvent(Result result, Player player, Location location, EntityType entityFromSpawner, EntityType entityFromEgg, double price, Map<String, Object> context) {
+    public SpawnerTransformEvent(Result result, Player player, Location location, EntityType entityFromSpawner, EntityType entityFromEgg, double finalPrice, Map<String, Object> context) {
         super(!Bukkit.isPrimaryThread());
 
         this.result = Objects.requireNonNull(result, "result");
@@ -44,7 +44,7 @@ public class SpawnerTransformEvent extends Event {
         this.location = location;
         this.entityFromSpawner = entityFromSpawner;
         this.entityFromEgg = entityFromEgg;
-        this.price = Math.max(0.0, price);
+        this.finalPrice = Math.max(0.0, finalPrice);
         this.context = context;
     }
 
@@ -53,7 +53,7 @@ public class SpawnerTransformEvent extends Event {
     }
 
     public Location getLocation() {
-        return location == null ? null : location.clone();
+        return location;
     }
 
     public EntityType getEntityFromSpawner() {
@@ -68,8 +68,8 @@ public class SpawnerTransformEvent extends Event {
         return result;
     }
 
-    public double getPrice() {
-        return price;
+    public double getFinalPrice() {
+        return finalPrice;
     }
 
     public Map<String, Object> getContext() {

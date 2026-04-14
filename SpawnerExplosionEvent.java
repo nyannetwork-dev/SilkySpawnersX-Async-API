@@ -32,7 +32,7 @@ public class SpawnerExplosionEvent extends Event {
     private final Map<String, Object> context;
 
     // Exposed values: result(enum), spawnerType, Location, quantity(int), cause(entity that tirggered the explosion), context(Map<String, Object>).
-    // Context keys: reason(String), world-name(String), drop-rate(double), roll(double), was-spawner-already-tagged(boolean).
+    // Context keys: reason(String), world-name(String, e.g. world_the_nether), drop-rate(double), roll(double), was-spawner-already-tagged(boolean).
     public SpawnerExplosionEvent(Result result, EntityType spawnerType, Location location, int quantity, String cause, Map<String, Object> context) {
         super(!Bukkit.isPrimaryThread());
         this.result = Objects.requireNonNull(result, "result");
